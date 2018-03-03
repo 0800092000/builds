@@ -24,7 +24,7 @@ install:
   - node --version
   - npm --version
   - pkg package.json -o builds/dat --targets node9-win-x86
-  - C:\projects\beaker-dat-x86
+  - cd C:\projects\beaker-dat-x86
 
 artifacts:
   - path: 'beaker\dist\*.exe'
