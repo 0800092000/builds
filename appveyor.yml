@@ -11,20 +11,20 @@ init:
 install:
   - ps: Install-Product node 9 x86
   - git clone https://github.com/beakerbrowser/beaker
-  - pushd beaker
+  - cd beaker
   - yarn
   - yarn run rebuild
   - yarn run release
-  - popd
+  - cd C:\projects\beaker-dat-x86
   - git clone https://github.com/datproject/dat
-  - pushd dat
+  - cd dat
   - npm install ajv@^6.0.0
   - npm install
   - npm install -g pkg
   - node --version
   - npm --version
   - pkg package.json -o builds/dat --targets node9-win-x86
-  - popd
+  - C:\projects\beaker-dat-x86
 
 artifacts:
   - path: 'beaker\dist\*.exe'
