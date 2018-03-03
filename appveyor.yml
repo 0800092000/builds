@@ -1,0 +1,32 @@
+image: Visual Studio 2017
+platform:
+  - x86
+
+cache:
+  - '%USERPROFILE%\.electron'
+
+init:
+  - git config --global core.autocrlf input
+
+install:
+  - ps: Install-Product node 9 x86
+  - git clone https://github.com/beakerbrowser/beaker
+  - pushd beaker
+  - yarn
+  - yarn run rebuild
+  - yarn run release
+  - popd
+  - git clone https://github.com/datproject/dat
+  - pushd dat
+  - npm install ajv@^6.0.0
+  - npm install
+  - npm install -g pkg
+  - node --version
+  - npm --version
+  - pkg package.json -o builds/dat --targets node9-win-x86
+  - popd
+
+artifacts:
+  - path: 'beaker\dist\*.exe'
+  - path: 'beaker\dist\latest.yml'
+  - path: 'dat\builds\*.exe'
