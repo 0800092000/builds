@@ -5,7 +5,7 @@ platform:
 
 environment:
   APPVEYOR_RDP_PASSWORD:
-    secure: uakh2DMMmIdiAzVwFaGlOQ==
+    secure: vSj30/Wt0zH7fa3jp/fxiw==
 
 cache:
   - '%USERPROFILE%\.electron'
