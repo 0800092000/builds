@@ -1,6 +1,11 @@
 image: Visual Studio 2017
+
 platform:
   - x86
+
+environment:
+  APPVEYOR_RDP_PASSWORD:
+    secure: uakh2DMMmIdiAzVwFaGlOQ==
 
 cache:
   - '%USERPROFILE%\.electron'
@@ -26,11 +31,15 @@ install:
   - npm --version
   - pkg package.json -o builds/dat --targets node9-win-x86
   - cd C:\projects\beaker-dat-x86
+
 build: off
+
 test: off
+
 artifacts:
   - path: 'beaker\dist\*.exe'
   - path: 'beaker\dist\latest.yml'
   - path: 'dat\builds\*.exe'
+
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
