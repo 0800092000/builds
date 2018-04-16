@@ -10,7 +10,7 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - ps: Install-Product ruby 2.5.0 x86
+  - ps: Install-Product ruby '2.5.0' x86
   - git clone https://github.com/jeffpar/mandelbot
   - cd mandelbot
   - git submodule update --init --recursive
