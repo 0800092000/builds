@@ -10,7 +10,8 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - ps: Install-Product ruby '2.5.0' x86
+  - rename C:\ruby193 ruby19
+  - rename C:\ruby25 ruby193
   - git clone https://github.com/jeffpar/mandelbot
   - cd mandelbot
   - git submodule update --init --recursive
