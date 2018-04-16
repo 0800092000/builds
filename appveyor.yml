@@ -11,7 +11,7 @@ init:
 
 install:
   - rename C:\ruby193 ruby19
-  - rename C:\ruby25 ruby193
+  - rename C:\ruby23 ruby193
   - git clone https://github.com/jeffpar/mandelbot
   - cd mandelbot
   - git submodule update --init --recursive
