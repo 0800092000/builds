@@ -10,22 +10,11 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - rename C:\ruby193 ruby19
-  - rename C:\ruby23 ruby193
-  - git clone https://github.com/jeffpar/mandelbot
-  - cd mandelbot
-  - git submodule update --init --recursive
-  - gem install bundler
-  - bundle install
-  - bundle exec jekyll build
-  - cd ..
+  - appveyor DownloadFile https://github.com/openworm/org.geppetto/releases/download/v0.3.8-alpha/geppetto-0.3.8.zip
 
 build: off
 
 test: off
 
 artifacts:
-  - path: 'mandelbot\_site'
-
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  - path: 'geppetto-0.3.8.zip'
