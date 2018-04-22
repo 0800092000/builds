@@ -10,11 +10,14 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - appveyor DownloadFile https://github.com/openworm/org.geppetto/releases/download/v0.3.7-alpha/geppetto-0.3.7.zip
+  - mkdir geppetto-sources
+  - pushd geppetto-sources
+  - git clone https://github.com/openworm/org.geppetto.git
+  - pushd org.geppetto\utilities\source_setup
 
 build: off
 
 test: off
 
-artifacts:
-  - path: 'geppetto-0.3.7.zip'
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
