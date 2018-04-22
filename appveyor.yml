@@ -10,11 +10,11 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - appveyor DownloadFile https://github.com/openworm/org.geppetto/releases/download/v0.3.8-alpha/geppetto-0.3.8.zip
+  - appveyor DownloadFile https://github.com/openworm/org.geppetto/releases/download/v0.3.7-alpha/geppetto-0.3.7.zip
 
 build: off
 
 test: off
 
 artifacts:
-  - path: 'geppetto-0.3.8.zip'
+  - path: 'geppetto-0.3.7.zip'
