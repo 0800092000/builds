@@ -10,10 +10,7 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - mkdir geppetto-sources
-  - pushd geppetto-sources
-  - git clone https://github.com/openworm/org.geppetto.git
-  - pushd org.geppetto\utilities\source_setup
+  - git clone https://github.com/python/cpython
 
 build: off
 
