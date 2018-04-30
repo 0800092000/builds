@@ -1,20 +1,9 @@
-image: Visual Studio 2017
-
-platform:
-  - x86
-
-cache:
-  - '%USERPROFILE%\.electron'
-
-init:
-  - git config --global core.autocrlf input
-
 install:
-  - git clone https://github.com/python/cpython
+  - appveyor DownloadFile https://github.com/docker/machine/releases/download/v0.14.0/docker-machine-Windows-i386.exe
 
 build: off
 
 test: off
 
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+artifacts:
+  - path: 'docker-machine-Windows-i386.exe'
