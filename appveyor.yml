@@ -1,9 +1,9 @@
 install:
-  - appveyor DownloadFile https://github.com/docker/machine/releases/download/v0.14.0/docker-machine-Windows-i386.exe
+  - appveyor DownloadFile https://github.com/boot2docker/boot2docker/releases/download/v18.05.0-ce-rc1/boot2docker.iso
 
 build: off
 
 test: off
 
 artifacts:
-  - path: 'docker-machine-Windows-i386.exe'
+  - path: 'boot2docker.iso'
