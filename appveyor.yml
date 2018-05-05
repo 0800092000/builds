@@ -1,6 +1,10 @@
 install:
   - git clone https://github.com/openworm/sibernetic
+  - appveyor DownloadFile https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
 
-build: sibernetic\Sibernetic.sln
+build: off
 
 test: off
+
+on_finish:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
