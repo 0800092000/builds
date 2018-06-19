@@ -1,10 +1,33 @@
+image: Visual Studio 2017
+platform:
+  - x86
+
+cache:
+  - '%USERPROFILE%\.electron'
+
+init:
+  - git config --global core.autocrlf input
+
 install:
-  - git clone https://github.com/openworm/sibernetic
-  - appveyor DownloadFile https://developer.nvidia.com/compute/cuda/9.1/Prod/network_installers/cuda_9.1.85_win10_network
-
+  - ps: Install-Product node 9 x86
+  - git clone https://github.com/beakerbrowser/beaker
+  - cd beaker
+  - yarn
+  - yarn run rebuild
+  - yarn run release
+  - cd C:\projects\beaker-dat-x86
+  - git clone https://github.com/datproject/dat
+  - cd dat
+  - npm install ajv@^6.0.0
+  - npm install
+  - npm install -g pkg
+  - node --version
+  - npm --version
+  - pkg package.json -o builds/dat --targets node9-win-x86
+  - cd C:\projects\beaker-dat-x86
 build: off
-
 test: off
-
-on_finish:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+artifacts:
+  - path: 'beaker\dist\*.exe'
+  - path: 'beaker\dist\latest.yml'
+  - path: 'dat\builds\*.exe'
