@@ -11,4 +11,5 @@ build: off
 test: off
 
 on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  - appveyor DownloadFile https://github.com/HelloZeroNet/ZeroNet-kivy/releases/download/v0.6.1.1/ZeroNet.apk
+  - appveyor PushArtifact ZeroNet.apk
