@@ -6,10 +6,17 @@ platform:
 cache:
   - '%USERPROFILE%\.electron'
 
+install:
+  - gem install jekyll
+  - git clone --recursive https://github.com/KnightOS/try.knightos.org
+  - cd try.knightos.org
+  - gem exec jekyll build
+  - cd ..
+  
 build: off
+
 
 test: off
 
-on_finish:
-  - appveyor DownloadFile https://github.com/HelloZeroNet/ZeroNet-kivy/releases/download/v0.6.1.1/ZeroNet.apk
-  - appveyor PushArtifact ZeroNet.apk
+artifacts:
+  - path: try.knightos.org
