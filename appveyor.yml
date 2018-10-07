@@ -7,7 +7,6 @@ cache:
   - '%USERPROFILE%\.electron'
 
 install:
-  - gem install jekyll
   - git clone --recursive https://github.com/GeorgioWan/Oi
   - cd Oi
   - npm i
