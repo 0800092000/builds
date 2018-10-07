@@ -8,9 +8,9 @@ cache:
 
 install:
   - gem install jekyll
-  - git clone --recursive https://github.com/KnightOS/try.knightos.org
-  - cd try.knightos.org
-  - gem exec jekyll build
+  - git clone --recursive https://github.com/GeorgioWan/Oi
+  - cd Oi
+  - npm i
   - cd ..
   
 build: off
@@ -19,7 +19,7 @@ build: off
 test: off
 
 artifacts:
-  - path: try.knightos.org
+  - path: Oi
   
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
