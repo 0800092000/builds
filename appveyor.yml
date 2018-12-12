@@ -7,9 +7,10 @@ cache:
   - '%USERPROFILE%\.electron'
 
 install:
-  - git clone --recursive https://github.com/GeorgioWan/Oi
-  - cd Oi
+  - git clone --recursive https://github.com/xtermjs/xterm.js
+  - cd xterm.js
   - npm i
+  - npm run build
   - cd ..
   
 build: off
@@ -18,7 +19,7 @@ build: off
 test: off
 
 artifacts:
-  - path: Oi
+  - path: xterm.js
   
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
