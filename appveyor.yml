@@ -7,10 +7,7 @@ cache:
   - '%USERPROFILE%\.electron'
 
 install:
-  - git clone --recursive https://github.com/Iogout/pics
-  - cd pics
   - start .
-  - cd ..
   
 build: off
 
@@ -18,7 +15,7 @@ build: off
 test: off
 
 artifacts:
-  - path: pics
+  - path: .
   
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
