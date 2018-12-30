@@ -7,6 +7,7 @@ cache:
   - '%USERPROFILE%\.electron'
 
 install:
+  - git clone https://github.com/sqlcipher/sqlcipher
   - start .
   
 build: off
@@ -15,7 +16,6 @@ build: off
 test: off
 
 artifacts:
-  - path: .
   
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
