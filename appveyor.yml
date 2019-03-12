@@ -3,15 +3,11 @@ image: Visual Studio 2017
 platform:
   - x64
 
-cache:
-  - '%USERPROFILE%\.electron'
-
 install:
-  - git clone https://github.com/sqlcipher/sqlcipher
+  - wget https://github.com/lachesis/scallion/releases/download/v2.1/scallion-v2.1.zip
   - start .
   
 build: off
-
 
 test: off
 
